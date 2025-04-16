@@ -10,27 +10,27 @@ export default {
       extend: {
         colors: {
           gray: {
-            100: '#EAEAEA',
-            200: '#A0A0A0',
-            300: '#787878',
-            400: '#545454',
-            500: '#383848',
-            600: '#2C2C3A',
-            700: '#1E1E2A',
-            800: '#14141F',
+            100: 'var(--color-gray-100)',
+            200: 'var(--color-gray-200)',
+            300: 'var(--color-gray-300)',
+            400: 'var(--color-gray-400)',
+            500: 'var(--color-gray-500)',
+            600: 'var(--color-gray-600)',
+            700: 'var(--color-gray-700)',
+            800: 'var(--color-gray-800)',
           },
           blue: {
-            400: '#60A5FA',
-            500: '#3B82F6',
+            400: 'var(--color-blue-400)',
+            500: 'var(--color-blue-500)',
           },
           green: {
-            500: '#10B981',
+            500: 'var(--color-green-500)',
           },
           yellow: {
-            500: '#FBBF24',
+            500: 'var(--color-yellow-500)',
           },
           red: {
-            500: '#EF4444',
+            500: 'var(--color-red-500)',
           },
         },
       },
