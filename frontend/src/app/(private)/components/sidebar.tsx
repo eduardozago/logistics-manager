@@ -1,6 +1,6 @@
 'use client'
 
-import { ChartLine, Package, UsersThree } from "@phosphor-icons/react";
+import { ChartLine, Package, Truck, UsersThree } from "@phosphor-icons/react";
 import Link from "next/link";
 
 export default function Sidebar() {
@@ -30,6 +30,14 @@ export default function Sidebar() {
                 >
                     <UsersThree size={20} />
                     Drivers
+                </Link>
+                <Link
+                    className="flex gap-3 items-center px-[1.875rem] py-[0.875rem] rounded-lg hover:bg-gray-600 transition-all duration-200" 
+                    href='/vehicles'
+                    title="Vehicles"
+                >
+                    <Truck size={20} />
+                    Vehicles
                 </Link>
             </nav>
         </aside>
