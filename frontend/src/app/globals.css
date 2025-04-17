@@ -1,56 +1,46 @@
 @import "tailwindcss";
 
-:root {
+@theme {
+  --color-*: initial;
   /* Grays - dark base */
-  --gray-100: #EAEAEA; /* main text */
-  --gray-200: #A0A0A0; /* secondary text */
-  --gray-300: #787878;
-  --gray-400: #545454;
-  --gray-500: #383848; /* border/divisores */
-  --gray-600: #2C2C3A; /* secundary background */
-  --gray-700: #1E1E2A; /* main background */
-  --gray-800: #14141F; /* darker background */
+  --color-gray-100: #EAEAEA; /* main text */
+  --color-gray-200: #A0A0A0; /* secondary text */
+  --color-gray-300: #787878;
+  --color-gray-400: #545454;
+  --color-gray-500: #383848; /* border/divisores */
+  --color-gray-600: #2C2C3A; /* secundary background */
+  --color-gray-700: #1E1E2A; /* main background */
+  --color-gray-800: #14141F; /* darker background */
 
   /* Primaries and secondaries */
-  --blue-500: #3B82F6; /* main blue */
-  --blue-400: #60A5FA; /* hover */
+  --color-blue-500: #3B82F6; /* main blue */
+  --color-blue-400: #60A5FA; /* hover */
   
-  --green-500: #10B981; /* success */
-  --yellow-500: #FBBF24; /* warning */
-  --red-500: #EF4444; /* error */
+  --color-green-500: #10B981; /* success */
+  --color-yellow-500: #FBBF24; /* warning */
+  --color-red-500: #EF4444; /* error */
 }
 
+@layer base {
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :focus {
+    outline: 0;
+    box-shadow: 0 0 0;
+  }
+  
+  body {
+    background: var(--color-gray-700);
+    color: var(--color-gray-100);
+  }
+  
+  body, input, textarea, button {
+    font-family: 'Inter', Helvetica, sans-serif;
   }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-:focus {
-  outline: 0;
-  box-shadow: 0 0 0;
-}
-
-body {
-  background: var(--gray-700);
-  color: var(--gray-100);
-}
-
-body, input, textarea, button {
-  font-family: 'Inter', Helvetica, sans-serif;
-}
