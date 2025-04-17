@@ -10,7 +10,7 @@ export default function PrivateLayout({ children }: Readonly<{
             <Header />
             <div className="flex">
                 <Sidebar />
-                <main className="ml-[14rem]">
+                <main className="ml-[14rem] p-[3rem] w-full">
                     {children}
                 </main>
             </div>
