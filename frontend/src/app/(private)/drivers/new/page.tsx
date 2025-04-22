@@ -80,7 +80,7 @@ export default function Page() {
                                     setSelected('No vehicle');
                                     setIsOpen(false);
                                 }}
-                                className="py-[0.25rem] px-[1rem] hover:bg-gray-200 text-green-700 cursor-pointer transition-colors"
+                                className="py-[0.25rem] px-[1rem] rounded-lg hover:bg-gray-600 text-gray-100 cursor-pointer transition-colors"
                             >No vehicle</li>
                             {vehicles.map((vehicle, index) => (
                             <li
@@ -90,7 +90,7 @@ export default function Page() {
                                     setIsOpen(false);
                                     setVehicle(vehicle.id)
                                 }}
-                                className="py-[0.25rem] px-[1rem] hover:bg-gray-200 text-green-700 cursor-pointer transition-colors"
+                                className="py-[0.25rem] px-[1rem] rounded-lg hover:bg-gray-600 text-gray-100 cursor-pointer transition-colors"
                             >
                                 {`${vehicle.model} - ${vehicle.plate}`}
                             </li>
