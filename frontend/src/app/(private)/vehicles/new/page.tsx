@@ -1,6 +1,13 @@
 'use client'
 
+import { CaretDown } from "@phosphor-icons/react";
 import { useState } from "react";
+
+enum VehicleType {
+    CAR = 'Car',
+    TRUCK = 'Truck',
+    VAN = 'Van'
+}
 
 export default function Page() {
     const [isOpen, setIsOpen] = useState(false);
@@ -40,34 +47,26 @@ export default function Page() {
                 <div className="relative w-64 w-full">
                     <button
                         onClick={handleOpenClick}
-                        className="w-full py-[0.25rem] text-green-700 border border-gray-300 rounded-md shadow-sm focus:border-green-700 cursor-pointer"
+                        className="flex justify-between items-center px-[1rem] w-full py-[0.25rem] text-green-700 border border-gray-300 rounded-md shadow-sm focus:border-green-700 cursor-pointer"
                     >
                         {selected}
+                        <CaretDown size={16} />
                     </button>
 
                     { isOpen && (
                         <ul className="absolute w-full bg-gray-700 border border-gray-300 rounded-md mt-1 shadow-lg">
-                            <li
-                                onClick={() => {
-                                    setSelected('Car');
-                                    setIsOpen(false);
-                                }}
-                                className="py-[0.25rem] px-[1rem] hover:bg-gray-200 text-green-700 cursor-pointer transition-colors"
-                            >Car</li>
-                            <li
-                                onClick={() => {
-                                    setSelected('Truck');
-                                    setIsOpen(false);
-                                }}
-                                className="py-[0.25rem] px-[1rem] hover:bg-gray-200 text-green-700 cursor-pointer transition-colors"
-                            >Truck</li>
-                            <li
-                                onClick={() => {
-                                    setSelected('Van');
-                                    setIsOpen(false);
-                                }}
-                                className="py-[0.25rem] px-[1rem] hover:bg-gray-200 text-green-700 cursor-pointer transition-colors"
-                            >Van</li>
+                            {Object.values(VehicleType).map((type) => (
+                                <li
+                                    onClick={() => {
+                                        setSelected(type);
+                                        setIsOpen(false);
+                                    }}
+                                    key={type}
+                                    className="py-[0.25rem] px-[1rem] rounded-lg hover:bg-gray-600 text-gray-100 cursor-pointer transition-colors"
+                                >
+                                    {type}
+                                </li>
+                            ))}
                         </ul>
                         )
                     }    
