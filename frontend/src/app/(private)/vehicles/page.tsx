@@ -1,6 +1,6 @@
 'use client'
 
-import { Truck, Van } from "@phosphor-icons/react";
+import { Plus, Truck, Van } from "@phosphor-icons/react";
 import Link from "next/link";
 
 const vehicles = [
@@ -40,7 +40,8 @@ export default function Page() {
             <div className="flex justify-between w-full">
                 <h1 className="font-[600] text-[1.25rem]">Vehicles</h1>
                 <div>
-                    <Link href='vehicles/new' className="bg-blue-500 px-[2rem] py-[0.25rem] rounded-lg cursor-pointer hover:bg-blue-400 transition-all duration-400">
+                    <Link href='vehicles/new' className="flex items-center gap-3 bg-blue-500 px-[2rem] py-[0.25rem] rounded-lg cursor-pointer hover:bg-blue-400 transition-all duration-400">
+                        <Plus size={18} />
                         New vehicle
                     </Link>
                 </div>
