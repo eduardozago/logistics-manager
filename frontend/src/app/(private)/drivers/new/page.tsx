@@ -1,5 +1,6 @@
 'use client'
 
+import { CaretDown } from "@phosphor-icons/react";
 import { useState } from "react";
 
 const vehicles = [
@@ -66,9 +67,10 @@ export default function Page() {
                 <div className="relative w-64 w-full">
                     <button
                         onClick={handleOpenClick}
-                        className="w-full py-[0.25rem] text-green-700 border border-gray-300 rounded-md shadow-sm focus:border-green-700"
+                        className="flex justify-between items-center px-[1rem] w-full py-[0.25rem] text-green-700 border border-gray-300 rounded-md shadow-sm focus:border-green-700 cursor-pointer"
                     >
                         {selected}
+                        <CaretDown size={16} />
                     </button>
 
                     { isOpen && (
