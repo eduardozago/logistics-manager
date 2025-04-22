@@ -108,6 +108,7 @@ export default function Page() {
                             }
                         }
                     )}
+                    maxLength={20}
                     onChange={() => clearErrors()}
                 />
                 { errors.license && <p className="text-red-500">{ errors.license.message }</p> }
