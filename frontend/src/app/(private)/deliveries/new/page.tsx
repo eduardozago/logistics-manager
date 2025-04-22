@@ -31,9 +31,6 @@ interface FormData {
 export default function Page() {
     const [isOpen, setIsOpen] = useState(false);
     const [selected, setSelected] = useState(`Select the driver`);
-    
-    const [ origin, setOrigin ] = useState('')
-    const [ destination, setDestination ] = useState('')
 
     const { register, formState: { errors }, clearErrors, handleSubmit, setValue, watch } = useForm<FormData>()
 
@@ -51,28 +48,11 @@ export default function Page() {
         setIsOpen(!isOpen);
     }
 
-    function handleOriginChange(event: React.ChangeEvent<HTMLInputElement>) {
-        const value = event.target.value
-
-        setOrigin(value)
-
-        clearErrors()
-    }
-
-    function handlDestinationChange(event: React.ChangeEvent<HTMLInputElement>) {
-        const value = event.target.value
-
-        setDestination(value)
-
-        clearErrors()
-    }
-
     function onSubmit(data: FormData) {
         console.log(data)
 
         router.push('/deliveries')
     }
-
 
     return (
         <div className="w-[50%] pr-[2rem]">
@@ -90,8 +70,7 @@ export default function Page() {
                             maxLength: { value: 200, message: "The origin must be no more than 200 characters"}
                         }
                     )}
-                    value={origin}
-                    onChange={handleOriginChange}
+                    onChange={() => clearErrors()}
                 />
                 { errors.origin && <p className="text-red-500">{ errors.origin.message }</p> }
                 <label className="mb-[0.5rem] mt-[1rem]">Destination:</label>
@@ -106,8 +85,7 @@ export default function Page() {
                             maxLength: { value: 200, message: "The destination must be no more than 200 characters"}
                         }
                     )}
-                    value={destination}
-                    onChange={handlDestinationChange}
+                    onChange={() => clearErrors()}
                 />
                 { errors.destination && <p className="text-red-500">{ errors.destination.message }</p> }
                 <label className="mb-[0.5rem] mt-[1rem]">Driver:</label>
