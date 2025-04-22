@@ -73,48 +73,20 @@ const deliveries = [
     }
 ]
 
+const issuesDeliveries = deliveries.filter(delivery => delivery.status === DeliveryStatus.ISSUES)
+
 export default function Page() {
-    const pendingDeliveries = deliveries.filter(delivery => delivery.status === DeliveryStatus.PENDING)
-    const inTransitDeliveries = deliveries.filter(delivery => delivery.status === DeliveryStatus.IN_TRANSIT)
-    const deliveredDeliveries = deliveries.filter(delivery => delivery.status === DeliveryStatus.DELIVERED)
-    const issuesDeliveries = deliveries.filter(delivery => delivery.status === DeliveryStatus.ISSUES)
 
     return (
         <div className="flex flex-col w-full items-center">
             <div className="flex justify-between w-full">
-                <h1 className="font-[600] text-[1.25rem]">Deliveries Managment</h1>
+                <h1 className="font-[600] text-[1.25rem]">Issues Deliveries</h1>
                 <div>
                     <Link href='deliveries/new' className="flex items-center gap-3 bg-blue-500 px-[2rem] py-[0.25rem] rounded-lg cursor-pointer hover:bg-blue-400 transition-all duration-400">
                         <Plus size={18} />
                         New delivery
                     </Link>
                 </div>
-            </div>
-            <div className="flex gap-4 w-full mt-[1rem] py-[0.5rem]">
-                <Link href='/deliveries/pending' className="flex-1">
-                    <div className="flex-1 flex justify-between items-center p-[1rem] rounded-lg bg-gray-500 shadow-md cursor-pointer hover:bg-gray-600 hover:shadow-lg transition-all duration-200">
-                        <p>Pending</p>
-                        <span className="text-[1.25rem]">{pendingDeliveries.length}</span>
-                    </div>
-                </Link>
-                <Link href='/deliveries/in-transit' className="flex-1">
-                    <div className="flex-1 flex justify-between items-center p-[1rem] rounded-lg bg-gray-500 shadow-md cursor-pointer hover:bg-gray-600 hover:shadow-lg transition-all duration-200">
-                        <p>In transit</p>
-                        <span className="text-[1.25rem]">{inTransitDeliveries.length}</span>
-                    </div>
-                </Link>
-                <Link href='/deliveries/delivered' className="flex-1">
-                    <div className="flex-1 flex justify-between items-center p-[1rem] rounded-lg bg-gray-500 shadow-md cursor-pointer hover:bg-gray-600 hover:shadow-lg transition-all duration-200">
-                        <p>Delivered</p>
-                        <span className="text-[1.25rem]">{deliveredDeliveries.length}</span>
-                    </div>
-                </Link>
-                <Link href='/deliveries/issues' className="flex-1">
-                    <div className="flex-1 flex justify-between items-center p-[1rem] rounded-lg bg-gray-500 shadow-md cursor-pointer hover:bg-gray-600 hover:shadow-lg transition-all duration-200">
-                        <p>Issues</p>
-                        <span className="text-[1.25rem]">{issuesDeliveries.length}</span>
-                    </div>
-                </Link>
             </div>
             <div className="overflow-auto w-full">
                 <table className="w-full border-collpse leading-6 mt-[1rem]">
@@ -135,7 +107,7 @@ export default function Page() {
                         </tr>
                     </thead>
                     <tbody>
-                        {deliveries.map((row) => (
+                        {issuesDeliveries.map((row) => (
                             <tr className="border-b border-gray-500 first:pl-6 last:pr-6" key={row.id}>
                                 <td className="p-2 first:pl-6 last:pr-6 w-[20%]">{row.id}</td>
                                 <td className="p-2">{row.from}</td>
