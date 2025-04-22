@@ -22,7 +22,7 @@ export default function Page() {
     const [isOpen, setIsOpen] = useState(false);
     const [selected, setSelected] = useState(`Select the vehicle type`);
 
-    const { register, formState: { errors }, clearErrors, handleSubmit, setValue, watch } = useForm<FormData>({ mode: "onChange"})
+    const { register, formState: { errors }, clearErrors, handleSubmit, setValue, watch } = useForm<FormData>()
 
     // Watch the selected value
     watch('type');
