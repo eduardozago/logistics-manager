@@ -20,17 +20,21 @@ export default {
             800: 'var(--color-gray-800)',
           },
           blue: {
+            300: 'var(--color-blue-300)',
             400: 'var(--color-blue-400)',
             500: 'var(--color-blue-500)',
           },
           green: {
             500: 'var(--color-green-500)',
+            400: 'var(--color-green-400)',
           },
           yellow: {
             500: 'var(--color-yellow-500)',
+            400: 'var(--color-yellow-400)',
           },
           red: {
             500: 'var(--color-red-500)',
+            400: 'var(--color-red-400)'
           },
         },
       },

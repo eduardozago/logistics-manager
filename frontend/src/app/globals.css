@@ -14,11 +14,15 @@
 
   /* Primaries and secondaries */
   --color-blue-500: #3B82F6; /* main blue */
-  --color-blue-400: #60A5FA; /* hover */
+  --color-blue-400: #60A5FA; /* status/hover */
+  --color-blue-300: #8abcfa; /* hover */
   
-  --color-green-500: #10B981; /* success */
-  --color-yellow-500: #FBBF24; /* warning */
-  --color-red-500: #EF4444; /* error */
+  --color-green-500: #10B981; /* success/status */
+  --color-green-400: #3ee0aa; /* hover */
+  --color-yellow-500: #FBBF24; /* warning/status */
+  --color-yellow-400: #e0bf6a; /* hover */
+  --color-red-500: #EF4444; /* error/status */
+  --color-red-400: #f57575; /* hover */
 }
 
 @layer base {
