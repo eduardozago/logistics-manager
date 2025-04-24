@@ -2,10 +2,21 @@
 
 import { ChartLine, Package, TextIndent, TextOutdent, Truck, UsersThree } from "@phosphor-icons/react";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Sidebar() {
     const [isOpen, setIsOpen] = useState(false)
+    const [ activePage, setActivePage ] = useState('')
+
+    const pathname = usePathname()
+
+    useEffect(() => {
+        const currentPage = pathname.split('/')
+
+        setActivePage(currentPage[1])
+
+    }, [pathname])
 
     return (
         <>
@@ -35,7 +46,7 @@ export default function Sidebar() {
             >
                 <nav className="flex flex-col gap-2 py-[2.5rem] md:py-0">
                     <Link
-                        className="flex gap-3 items-center px-[1.875rem] py-[0.875rem] rounded-lg hover:bg-gray-600 transition-all duration-200" 
+                        className={`flex gap-3 items-center px-[1.875rem] py-[0.875rem] rounded-lg ${ activePage === 'dashboard' ? 'bg-gray-600' : '' } hover:bg-gray-600 transition-all duration-200`} 
                         href='/dashboard'
                         title="Dashboard"
                     >
@@ -45,7 +56,7 @@ export default function Sidebar() {
                         </span>
                     </Link>
                     <Link
-                        className="flex gap-3 items-center px-[1.875rem] py-[0.875rem] rounded-lg hover:bg-gray-600 transition-all duration-200" 
+                        className={`flex gap-3 items-center px-[1.875rem] py-[0.875rem] rounded-lg ${ activePage === 'deliveries' ? 'bg-gray-600' : '' } hover:bg-gray-600 transition-all duration-200`} 
                         href='/deliveries'
                         title="Deliveries"
                     >
@@ -55,7 +66,7 @@ export default function Sidebar() {
                         </span>
                     </Link>
                     <Link
-                        className="flex gap-3 items-center px-[1.875rem] py-[0.875rem] rounded-lg hover:bg-gray-600 transition-all duration-200" 
+                        className={`flex gap-3 items-center px-[1.875rem] py-[0.875rem] rounded-lg ${ activePage === 'drivers' ? 'bg-gray-600' : '' } hover:bg-gray-600 transition-all duration-200`} 
                         href='/drivers'
                         title="Drivers"
                     >
@@ -65,7 +76,7 @@ export default function Sidebar() {
                         </span>
                     </Link>
                     <Link
-                        className="flex gap-3 items-center px-[1.875rem] py-[0.875rem] rounded-lg hover:bg-gray-600 transition-all duration-200" 
+                        className={`flex gap-3 items-center px-[1.875rem] py-[0.875rem] rounded-lg ${ activePage === 'vehicles' ? 'bg-gray-600' : '' } hover:bg-gray-600 transition-all duration-200`} 
                         href='/vehicles'
                         title="Vehicles"
                     >
