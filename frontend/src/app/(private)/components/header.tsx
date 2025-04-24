@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function Header() {
     return (
         <header className="h-[5rem] py-4 bg-gray-800 flex items-center justify-center sticky top-0 z-50 border-b border-gray-400">
-            <div className="flex items-center justify-between w-full h-full px-8">
+            <div className="flex items-center justify-between w-full h-full px-[0.75rem] md:px-[2rem]">
                 <Link href='/'>
                     <Image 
                         className="flex" src='/logo-light.png' alt="Logo" width={60} height={60}
