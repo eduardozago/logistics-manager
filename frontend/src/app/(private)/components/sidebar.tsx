@@ -11,7 +11,7 @@ export default function Sidebar() {
         <>
             {/* Mobile button */}
             <button 
-                className={`md:hidden fixed top-4 mt-[4.25rem] ${isOpen ? 'ml-[1.5rem] w-[10rem] flex justify-center transition-all duration-500 ease-in-out' : 'ml-[0.75rem]' } z-50 bg-gray-700 p-2 rounded bg-gray-800 border border-gray-400 transition-all duration-400 ease-in-out`}
+                className={`md:hidden fixed top-4 mt-[4.25rem] ${isOpen ? 'ml-[1.5rem] w-[10rem] flex justify-center transition-all duration-500 ease-in-out' : 'ml-[0.75rem]' } z-50 bg-gray-700 p-2 rounded bg-gray-800 border border-gray-400 c`}
                 onClick={() => setIsOpen(!isOpen)}
             >
                 { isOpen ? (
