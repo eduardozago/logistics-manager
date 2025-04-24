@@ -88,8 +88,8 @@ export default function Page() {
 
     return (
         <div className="flex flex-col w-full items-center">
-            <div className="flex justify-between w-full">
-                <h1 className="font-[600] text-[1.25rem]">Deliveries Managment</h1>
+            <div className="flex justify-between items-center w-full">
+                <h1 className="font-[600] text-[1.25rem] max-w-[8rem] sm:max-w-none">Deliveries Managment</h1>
                 <div>
                     <Link href='deliveries/new' className="flex items-center gap-3 bg-blue-500 px-[2rem] py-[0.25rem] rounded-lg cursor-pointer hover:bg-blue-400 transition-all duration-400">
                         <Plus size={18} />
@@ -97,7 +97,7 @@ export default function Page() {
                     </Link>
                 </div>
             </div>
-            <div className="flex gap-4 w-full mt-[1rem] py-[0.5rem]">
+            <div className="grid gap-4 w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-[1rem] py-[0.5rem]">
                 <Link href='/deliveries/pending' className="flex-1">
                     <div className="flex-1 flex justify-between items-center p-[1rem] rounded-lg bg-gray-500 shadow-md cursor-pointer hover:bg-gray-600 hover:shadow-lg transition-all duration-200">
                         <p>Pending</p>
@@ -124,7 +124,7 @@ export default function Page() {
                 </Link>
             </div>
             <div className="overflow-auto w-full">
-                <table className="w-full border-collpse leading-6 mt-[1rem]">
+                <table className="w-full min-w-[40rem] border-collpse leading-6 mt-[1rem]">
                     <thead className="bg-gray-500 border-b-2 border-gray-600">
                         <tr className="rounded-t-lg font-[400]">
                             <th className="p-2 text-left leaging-6 first:pl-6 first:rounded-tl-[8px]">
