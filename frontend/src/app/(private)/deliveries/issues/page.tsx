@@ -2,6 +2,7 @@
 
 import { CarProfile, Check, Plus, Spinner, X } from "@phosphor-icons/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 enum DeliveryStatus {
     PENDING = 'Pending',
@@ -76,6 +77,11 @@ const deliveries = [
 const issuesDeliveries = deliveries.filter(delivery => delivery.status === DeliveryStatus.ISSUES)
 
 export default function Page() {
+    const router = useRouter()
+    
+    function handleRowClick(deliveryId: string) {
+        router.push(`/deliveries/${deliveryId}`)
+    }
 
     return (
         <div className="flex flex-col w-full items-center">
@@ -108,7 +114,11 @@ export default function Page() {
                     </thead>
                     <tbody>
                         {issuesDeliveries.map((row) => (
-                            <tr className="border-b border-gray-500 first:pl-6 last:pr-6" key={row.id}>
+                            <tr 
+                                className="border-b border-gray-500 first:pl-6 last:pr-6 cursor-pointer hover:bg-gray-500 transition-all duration-300" 
+                                key={row.id}
+                                onClick={ () => handleRowClick(row.id)}
+                            >
                                 <td className="p-2 first:pl-6 last:pr-6 w-[20%]">{row.id}</td>
                                 <td className="p-2">{row.from}</td>
                                 <td className="p-2">{row.to}</td>
