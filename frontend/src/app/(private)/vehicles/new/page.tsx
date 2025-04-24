@@ -45,9 +45,9 @@ export default function Page() {
     }
 
     return (
-        <div className="w-[50%] pr-[2rem]">
+        <div className="w-full md:w-[60%] lg:max-w-[30rem]">
             <h1 className="font-[600] text-[1.25rem]">Add Vehicle</h1>
-            <form className="flex flex-col w-[60%] mt-[1rem] mb-[1rem]" onSubmit={handleSubmit(onSubmit)}>
+            <form className="flex flex-col w-full sm:w-[60%] md:w-[100%] mt-[1rem] mb-[1rem]" onSubmit={handleSubmit(onSubmit)}>
                 <label className="mb-[0.5rem]">Plate:</label>
                 <input 
                     type="text"
