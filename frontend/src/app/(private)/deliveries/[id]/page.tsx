@@ -42,15 +42,15 @@ export default function Page() {
     const [ status, setStatus ] = useState(deliveryStatus)
 
     return (
-        <div className="w-full px-[1rem]">
-            <div className="w-full flex items-center justify-center border-b border-gray-500 pb-[1rem]">
-                <h1 className="font-[600] text-[1.25rem] flex-1">{`From ${delivery.origin} to ${delivery.destination}`}</h1>
-                <div>
+        <div className="w-full sm:px-[1rem]">
+            <div className="w-full flex-col sm:flex items-center justify-center border-b border-gray-500 pb-[1rem]">
+                <h1 className="font-[600] text-[1.25rem] mb-[1rem] sm:mb-0 flex-initial flex-1">{`From ${delivery.origin} to ${delivery.destination}`}</h1>
+                <div className="my-[1rem]">
                     <Dropdown status={status} setStatus={setStatus}/>
                 </div>
-                <span className="text-gray-200 flex-1 flex justify-end">{`#${id}`}</span>
+                <span className="text-gray-200 flex-1 flex justify-center sm:justify-end">{`#${id}`}</span>
             </div>
-            <div className="flex gap-4 w-full h-full mt-[1rem]">
+            <div className="flex flex-col sm:flex-row gap-4 w-full h-full mt-[1rem]">
                 <div className="flex-1 border border-gray-500 rounded-lg p-[1rem]">
                     <div>
                         <span className="font-[500]">{driver.name}</span>
