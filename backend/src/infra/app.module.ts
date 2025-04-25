@@ -4,7 +4,6 @@ import { ClerkClientProvider } from './providers/clerk-client.provider'
 import { AuthModule } from './auth/auth.module'
 import { APP_GUARD } from '@nestjs/core'
 import { ClerkAuthGuard } from './auth/clerk.guard'
-import { AppController } from './app.controller'
 
 @Module({
   imports: [
@@ -13,7 +12,6 @@ import { AppController } from './app.controller'
     }),
     AuthModule,
   ],
-  controllers: [AppController],
   providers: [
     ClerkClientProvider,
     {
