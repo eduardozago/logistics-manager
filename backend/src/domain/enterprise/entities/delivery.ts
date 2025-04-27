@@ -41,6 +41,15 @@ export class Delivery extends Entity<DeliveryProps> {
     return this.props.updatedAt ?? null
   }
 
+  private touch() {
+    this.props.updatedAt = new Date()
+  }
+
+  set status(status: DeliveryStatus) {
+    this.props.status = status
+    this.touch()
+  }
+
   static create(
     props: Optional<DeliveryProps, 'createdAt'>,
     id?: UniqueEntityId,
