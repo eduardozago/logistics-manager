@@ -31,6 +31,26 @@ export class Vehicle extends Entity<VehicleProps> {
     return this.props.year
   }
 
+  set plate(plate: string) {
+    this.props.plate = plate
+  }
+
+  set model(model: string) {
+    this.props.model = model
+  }
+
+  set type(type: VehicleType) {
+    this.props.type = type
+  }
+
+  set year(year: string) {
+    this.props.year = year
+  }
+
+  set driverId(driverId: string | null) {
+    this.props.driverId = driverId
+  }
+
   static create(props: VehicleProps, id?: UniqueEntityId) {
     const vehicle = new Vehicle(props, id)
 
