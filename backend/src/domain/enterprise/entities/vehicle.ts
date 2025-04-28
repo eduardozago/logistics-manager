@@ -2,16 +2,13 @@ import { Entity } from '@/core/entities/entity'
 import { VehicleType } from './vehicle-type'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 
-interface VehicleProps {
+export interface VehicleProps {
   driverId?: string | null
   plate: string
   model: string
   type: VehicleType
   year: string
 }
-
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 
 export class Vehicle extends Entity<VehicleProps> {
   get driverId(): string | null {
