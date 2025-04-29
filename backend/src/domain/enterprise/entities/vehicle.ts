@@ -3,7 +3,7 @@ import { VehicleType } from './vehicle-type'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 
 export interface VehicleProps {
-  driverId?: string | null
+  driverId?: UniqueEntityId | null
   plate: string
   model: string
   type: VehicleType
@@ -11,7 +11,7 @@ export interface VehicleProps {
 }
 
 export class Vehicle extends Entity<VehicleProps> {
-  get driverId(): string | null {
+  get driverId(): UniqueEntityId | null {
     return this.props.driverId ?? null
   }
 
@@ -47,7 +47,7 @@ export class Vehicle extends Entity<VehicleProps> {
     this.props.year = year
   }
 
-  set driverId(driverId: string | null) {
+  set driverId(driverId: UniqueEntityId | null) {
     this.props.driverId = driverId
   }
 
