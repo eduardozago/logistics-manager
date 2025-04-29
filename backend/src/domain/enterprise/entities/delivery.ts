@@ -3,8 +3,8 @@ import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { Optional } from '@/core/types/optional'
 import { DeliveryStatus } from './delivery-status'
 
-interface DeliveryProps {
-  driverId: string
+export interface DeliveryProps {
+  driverId: UniqueEntityId
   origin: string
   destination: string
   status: DeliveryStatus
@@ -12,12 +12,8 @@ interface DeliveryProps {
   updatedAt?: Date | null
 }
 
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-
 export class Delivery extends Entity<DeliveryProps> {
-  get driverId(): string {
+  get driverId(): UniqueEntityId {
     return this.props.driverId
   }
 
@@ -45,18 +41,29 @@ export class Delivery extends Entity<DeliveryProps> {
     this.props.updatedAt = new Date()
   }
 
+  set origin(origin: string) {
+    this.props.origin = origin
+    this.touch()
+  }
+
+  set destination(destination: string) {
+    this.props.destination = destination
+    this.touch()
+  }
+
   set status(status: DeliveryStatus) {
     this.props.status = status
     this.touch()
   }
 
   static create(
-    props: Optional<DeliveryProps, 'createdAt'>,
+    props: Optional<DeliveryProps, 'status' | 'createdAt'>,
     id?: UniqueEntityId,
   ) {
     const delivery = new Delivery(
       {
         ...props,
+        status: props.status ?? DeliveryStatus.PENDING,
         createdAt: props.createdAt ?? new Date(),
       },
       id,
