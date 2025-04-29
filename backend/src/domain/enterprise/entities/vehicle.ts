@@ -2,19 +2,16 @@ import { Entity } from '@/core/entities/entity'
 import { VehicleType } from './vehicle-type'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 
-interface VehicleProps {
-  driverId?: string | null
+export interface VehicleProps {
+  driverId?: UniqueEntityId | null
   plate: string
   model: string
   type: VehicleType
   year: string
 }
 
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-
 export class Vehicle extends Entity<VehicleProps> {
-  get driverId(): string | null {
+  get driverId(): UniqueEntityId | null {
     return this.props.driverId ?? null
   }
 
@@ -32,6 +29,26 @@ export class Vehicle extends Entity<VehicleProps> {
 
   get year(): string {
     return this.props.year
+  }
+
+  set plate(plate: string) {
+    this.props.plate = plate
+  }
+
+  set model(model: string) {
+    this.props.model = model
+  }
+
+  set type(type: VehicleType) {
+    this.props.type = type
+  }
+
+  set year(year: string) {
+    this.props.year = year
+  }
+
+  set driverId(driverId: UniqueEntityId | null) {
+    this.props.driverId = driverId
   }
 
   static create(props: VehicleProps, id?: UniqueEntityId) {

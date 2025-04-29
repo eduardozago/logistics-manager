@@ -1,18 +1,15 @@
 import { Entity } from '@/core/entities/entity'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 
-interface DriverProps {
-  vehicleId: string
+export interface DriverProps {
+  vehicleId?: UniqueEntityId | null
   name: string
   license: string
 }
 
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-
 export class Driver extends Entity<DriverProps> {
-  get vehicleId(): string {
-    return this.props.vehicleId
+  get vehicleId(): UniqueEntityId | null {
+    return this.props.vehicleId ?? null
   }
 
   get name(): string {
@@ -21,6 +18,18 @@ export class Driver extends Entity<DriverProps> {
 
   get license(): string {
     return this.props.license
+  }
+
+  set vehicleId(vehicleId: UniqueEntityId | null) {
+    this.props.vehicleId = vehicleId
+  }
+
+  set name(name: string) {
+    this.props.name = name
+  }
+
+  set license(license: string) {
+    this.props.license = license
   }
 
   static create(props: DriverProps, id?: UniqueEntityId) {
