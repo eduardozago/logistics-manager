@@ -3,6 +3,7 @@ import { Vehicle } from '@/domain/enterprise/entities/vehicle'
 import { VehiclesRepository } from '../../repositories/vehicles-repository'
 import { ResourceAlreadyExistsError } from '@/core/errors/errors/resource-already-exists-error'
 import { VehicleTypeMapper } from '../../mappers/vehicle-type-mapper'
+import { Injectable } from '@nestjs/common'
 
 interface CreateVehicleUseCaseRequest {
   plate: string
@@ -18,6 +19,7 @@ type CreateVehicleUseCaseResponse = Either<
   }
 >
 
+@Injectable()
 export class CreateVehicleUseCase {
   constructor(private vehiclesRepository: VehiclesRepository) {}
 
